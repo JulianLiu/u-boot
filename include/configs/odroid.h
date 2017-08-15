@@ -454,8 +454,19 @@
 #define CONFIG_ENV_IS_IN_MMC
 #define CONFIG_SYS_MMC_ENV_DEV		0
 
+#undef CONFIG_ENV_IS_IN_MMC
+#define CONFIG_ENV_IS_IN_FAT
+#define FAT_ENV_INTERFACE "mmc"
+#define FAT_ENV_DEVICE 0
+#define FAT_ENV_PART 1
+#define FAT_ENV_FILE "uboot.env"
+#define CONFIG_SYS_REDUNDAND_ENVIRONMENT
+
+#define CONFIG_FAT_WRITE
+#define CONFIG_SUPPORT_RAW_INITRD
+
 /* Configuration of ENV size on mmc */
-#define CONFIG_ENV_SIZE		(16 << 10)	/* 16 KB */
+#define CONFIG_ENV_SIZE		(128 * 1024)
 #include <asm/arch/movi_partition.h>
 
 /* Configuration of ROOTFS_ATAGS */
